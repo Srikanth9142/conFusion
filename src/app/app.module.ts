@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { matchesElement } from '@angular/animations/browser/src/render/shared';
 
 import {DishService} from './services/dish.service';
+import {PromotionService} from './services/promotion.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -45,7 +46,8 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     MatButtonModule
   ],
   providers: [
-    DishService
+    DishService,
+    PromotionService
   ],
   bootstrap: [AppComponent]
 })
