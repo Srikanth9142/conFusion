@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app/app-routing/app-routing.module';
-
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
@@ -18,6 +19,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
 import { matchesElement } from '@angular/animations/browser/src/render/shared';
 
 import {DishService} from './services/dish.service';
@@ -32,8 +34,9 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
-import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
+import { from } from 'rxjs';
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,10 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatListModule,
@@ -63,14 +70,14 @@ import { LoginComponent } from './login/login.component';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule
   ],
   providers: [
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    {provide:'BaseURL',useValue:baseURL}
   ],
   entryComponents:[
     LoginComponent
